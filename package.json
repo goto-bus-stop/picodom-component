@@ -1,0 +1,38 @@
+{
+  "name": "picodom-component",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "browser": {
+    "./stringify.js": false
+  },
+  "scripts": {
+    "test:browser": "browserify test/browser.js | tape-run",
+    "test:server": "tape test/server.js",
+    "test": "npm run test:server && npm run test:browser",
+    "example": "budo example.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goto-bus-stop/picodom-component.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/goto-bus-stop/picodom-component/issues"
+  },
+  "homepage": "https://github.com/goto-bus-stop/picodom-component#readme",
+  "dependencies": {
+    "hyperapp-server": "0.0.1",
+    "hyperx": "^2.3.0",
+    "on-load": "^3.2.3",
+    "picodom": "^0.1.0"
+  },
+  "devDependencies": {
+    "browserify": "^14.4.0",
+    "budo": "^10.0.4",
+    "tape": "^4.8.0",
+    "tape-run": "^3.0.0"
+  }
+}
