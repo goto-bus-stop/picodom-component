@@ -2,6 +2,8 @@ var assert = require('assert')
 var picodom = require('picodom')
 var onload = require('on-load')
 var stringify = require('./stringify')
+var h = picodom.h
+var patch = picodom.patch
 
 module.exports = Component
 
@@ -29,7 +31,7 @@ Component.prototype.render = function () {
   }
   addLifecycleHooks(this, node)
 
-  this.element = picodom.patch(this.node, node, this.element)
+  this.element = patch(this.node, node, this.element)
   this.node = node
 
   if (this.afterupdate) {
@@ -47,11 +49,7 @@ Component.prototype.update = function () {
 }
 
 function addLifecycleHooks (component, node) {
-  if (!component.load && !component.unload)  {
-    return
-  }
-
-  var oncreate = node.oncreate
+  var oncreate = node.data.oncreate
   node.data.oncreate = function (el) {
     if (oncreate) oncreate(el)
 
