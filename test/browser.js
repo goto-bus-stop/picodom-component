@@ -15,10 +15,10 @@ test('rendering', function (t) {
   var wrapper = document.createElement('div')
   var el = component.render('abc')
   wrapper.appendChild(el)
-  t.equal(wrapper.innerHTML, '<div>abc</div>', 'should return native DOM elements')
+  t.ok(/^<div data-onload\w*?="o0">abc<\/div>$/.test(wrapper.innerHTML), 'should return native DOM elements')
 
   var el2 = component.render('def')
-  t.equal(wrapper.innerHTML, '<div>def</div>', 'should patch dom with new props')
+  t.ok(/^<div data-onload\w*?="o0">def<\/div>$/.test(wrapper.innerHTML), 'should patch dom with new props')
 
   t.ok(el.isSameNode(el2), 'should return the same node')
 
