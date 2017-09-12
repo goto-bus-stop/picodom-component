@@ -1,3 +1,4 @@
+'use strict'
 var test = require('tape')
 var h = require('picodom').h
 var Picocomponent = require('../')
